@@ -366,7 +366,7 @@
 ;Otherwise, we call sum-manhattan to get the sum of min manhattan distance
 ;from each box in boxes to a goal, and we sum the output up with the min
 ;manhattan distance from the keeper to the closest box.
-(defun h504923897 (s)
+(defun h000000000 (s)
 	(let* ((pos (getKeeperPosition s 0)) 
 		(x (car pos))
 		(y (cadr pos))
