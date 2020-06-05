@@ -1,0 +1,93 @@
+1-(a) {x/A, y/A, z/B}
+1-(b) cannot be unified
+1-(c) {x/B, y/A}
+1-(d) {x/John, y/John}
+1-(e) cannot be unified
+
+2-(a)
+(A x) (Food(x) => Likes(John, x))
+Food(Apples)
+Food(Chicken)
+(A x) (((E y) Eats(y, x) & ~KilledBy(y, x)) => Food(x))
+(A x) (((E y) (KilledBy(x, y))) => ~Alive(x))
+Eats(Bill, Peanuts) & Alive(Bill) 
+(A x) (Eats(Bill, x) => Eats(Sue, x))
+
+2-(b) Clauses of the formulas of part(a):
+1. ~Food(x1) | Likes(John, x1)
+2. Food(Apples)
+3. Food(Chicken)
+4. ~Eats(y2, x2) | KilledBy(y2, x2) | Food(x2)
+5. ~KilledBy(x3, y3) | ~Alive(x3)
+6. Eats(Bill, Peanuts)
+7. Alive(Bill)
+8. ~Eats(Bill, x4) | Eats(Sue, x4)
+
+2-(c) 
+9. ~Likes(John, Peanuts)
+Applying the resolution rule to the clauses, we get
+10. ~Food(Peanuts) (from 1, 9) {x1/Peanuts}
+11. ~Eats(y2, Peanuts) | KilledBy(y2, Peanuts) (from 10, 4) {x2/Peanuts}
+12. KilledBy(Bill, Peanuts) (from 11, 6) {y2/Bill}
+13. ~Alive(Bill) (from 12, 5) {x3/Bill, y3/Peanuts}
+14. Empty clause (from 13, 7)
+Therefore, the knowledge base entails that John likes peanuts.
+Thus, we have proven that John likes peanuts using resolution.
+
+2-(d)
+~((E z) (Food(z) & Eats(Sue, z)))
+CNF clause of the sentence above:
+15. ~Food(z) | ~Eats(Sue, z)
+
+Applying the resolution rule to the clauses, we get
+16. ~Eats(Bill, z) | ~Food(z) (from 15, 8) {x4/z}
+17. ~Food(Peanuts) (from 17, 6) {z/Peanuts}
+18. ~Eats(y2, Peanuts) | KilledBy(y2, Peanuts) (from 17, 4) {x2/Peanuts}
+19. ~Eats(y2, Peanuts) | ~Alive(y2) (form 18, 5) {y3/Peanuts, x3/y2}
+20. ~Alive(Bill) (from 19, 6) {y2/Bill}
+21. Empty clause (from 20, 7)
+Thus, we know that Sue eats peanuts, since {z/Peanuts}.
+
+2-(e)
+New axiom:
+(A x) (((A y) (~Eats(x, y))) => Die(x))
+(A x) (Die(x) => ~Alive(x))
+Alive(Bill)
+
+New Knowledge Base:
+1. ~Food(x1) | Likes(John, x1)
+2. Food(Apples)
+3. Food(Chicken)
+4. ~Eats(y2, x2) | KilledBy(y2, x2) | Food(x2)
+5. ~KilledBy(x3, y3) | ~Alive(x3)
+7. Alive(Bill)
+8. ~Eats(Bill, x4) | Eats(Sue, x4)
+22. Eats(x5, F(x5)) | Die(x5)
+23. ~Die(x6) | ~Alive(x6)
+
+15. ~Food(z) | ~Eats(Sue, z)
+
+Applying the resolution rule to the clauses, we get
+24. ~Eats(Bill, x4) | ~Food(x4) (from 15, 8) {z/x4}
+25. ~Die(Bill) (from 7, 23) {x6/Bill}
+26. Eats(Bill, F(Bill)) (from 25, 22) {x5/Bill}
+27. Empty clause (from 26, 24) {x4/F(Bill)}
+
+Since, {z/x4} and {x4/F(Bill)}, we know that z is bind to F(Bill),
+we know that Sue eats what Bill eats.
+
+3-(1) 
+No, the instance is unsatisfiable.
+
+3-(2)
+Yes, the instance is satisfiable.
+
+3-(3)
+Graph1 cannot be colored using 3 colors, but it can be colored using 4 colors. 
+The minimum number of colors required to properly color Graph1 is 4. 
+A solution to the graph coloring problem of Graph1 is to use four colors,
+red, green, blue, and yellow. Color node 1 red, node 2 yellow, node 3 blue, node 4 yellow, 
+node 5 green, node 6 blue, node 7 green.
+
+3-(4)
+The minimum number of colors required to properly color Graph2 is 8.
