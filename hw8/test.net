@@ -1,0 +1,32 @@
+net
+{
+	jenginegenerator6060830225489488864L = "edu.ucla.belief.inference.JoinTreeSettings@d0a03f0";
+}
+
+node D
+{
+	states = ("true" "false" );
+	position = (189 -41);
+	ismapvariable = "false";
+	label = "disease";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node T
+{
+	states = ("positive" "negative" );
+	position = (252 -154);
+	ismapvariable = "false";
+	label = "Test";
+	diagnosistype = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+potential ( D | )
+{
+	data = (	0.001	0.999	);
+}
+potential ( T | D )
+{
+	data = ((	0.95	0.05	)
+		(	0.02	0.98	));
+}
