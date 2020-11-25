@@ -350,13 +350,13 @@
 ; The Lisp 'time' function can be used to measure the 
 ; running time of a function call.
 ;
-;h504923897 takes in a state s, and returns an integer.
+;h000000000 takes in a state s, and returns an integer.
 ;If there are still boxes not in goal, the function returns 
 ;the sum of the minimum manhattan distance from each box to a goal
 ;and the minimum manhattan distance from the keeper to the closest box.
 ;If all boxes are in goal, the function returns the minimum
 ;manhattan distance from the keeper to a goal.
-;h504923897 is an admissible heruistic, 
+;h000000000 is an admissible heruistic, 
 ;because it never overestimates the actual cost to reach the goal state.
 ;
 ;We first call getKeeperPosition to get the coordinate (x, y) of the keeper,
